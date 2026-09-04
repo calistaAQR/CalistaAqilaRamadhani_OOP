@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test JavaScript</title>
+</head>
+
+<body>
+
+    <h1 id="title">VS Code Test</h1>
+
+    <p id="text">Kalau JavaScript berjalan, tulisan ini akan berubah.</p>
+
+    <button onclick="changeText()">Klik untuk Test</button>
+
+    <script>
+        function changeText() {
+            document.getElementById("title").innerHTML = "Berhasil! 🎉";
+            document.getElementById("text").innerHTML =
+                "JavaScript kamu berjalan dengan normal.";
+        }
+    </script>
+
+</body>
+</html>
