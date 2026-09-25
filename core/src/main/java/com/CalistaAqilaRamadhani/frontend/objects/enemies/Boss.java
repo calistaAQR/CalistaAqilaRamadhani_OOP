@@ -1,4 +1,4 @@
-package com.CalistaAqilaRamadhani.frontend;
+package com.CalistaAqilaRamadhani.frontend.objects.enemies;
 
 import com.badlogic.gdx.graphics.Color;
 

@@ -1,4 +1,10 @@
 package com.calista.frontend;
+import com.CalistaAqilaRamadhani.frontend.objects.Player;
+import com.CalistaAqilaRamadhani.frontend.objects.enemies.Enemy;
+import com.CalistaAqilaRamadhani.frontend.objects.enemies.Fairy;
+import com.CalistaAqilaRamadhani.frontend.objects.enemies.Boss;
+import com.CalistaAqilaRamadhani.frontend.objects.items.Item;
+import com.CalistaAqilaRamadhani.frontend.objects.items.ItemType;
 
 public class Test {
     public static void main(String[] args) {

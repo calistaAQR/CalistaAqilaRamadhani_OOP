@@ -1,4 +1,4 @@
-package com.CalistaAqilaRamadhani.frontend;
+package com.CalistaAqilaRamadhani.frontend.objects.enemies;
 
 import com.badlogic.gdx.graphics.Color;
 
@@ -32,3 +32,13 @@ public class Fairy extends Enemy {
         );
     }
 }
+
+@Override
+public void onCollision(Collidable other) {
+
+    if (other instanceof Player) {
+
+        System.out.println("Player touches fairy");
+    }
+}
+

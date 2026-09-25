@@ -1,11 +1,8 @@
 package com.CalistaAqilaRamadhani.frontend;
+import com.CalistaAqilaRamadhani.frontend.objects.GameObject;
 
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.ScreenUtils;
+import java.util.Iterator;
+import java.util.List;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class Main extends ApplicationAdapter {
@@ -30,5 +27,34 @@ public class Main extends ApplicationAdapter {
     public void dispose() {
         batch.dispose();
         image.dispose();
+    }
+}
+
+
+public <T extends GameObject> void updateAndClean(
+    List<T> list,
+    float delta,
+    float screenWidth,
+    float screenHeight
+) {
+
+    Iterator<T> iterator = list.iterator();
+
+    while (iterator.hasNext()) {
+
+        T entity = iterator.next();
+
+        entity.update(delta);
+
+        if (entity.isOffScreen(screenWidth, screenHeight)
+            || entity.isDestroyed()) {
+
+            System.out.println(
+                "Removed via Generic Iterator: "
+                    + entity.getClass().getSimpleName()
+            );
+
+            iterator.remove();
+        }
     }
 }

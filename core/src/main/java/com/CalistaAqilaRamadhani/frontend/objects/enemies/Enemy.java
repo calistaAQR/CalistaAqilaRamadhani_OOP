@@ -1,6 +1,4 @@
-package com.CalistaAqilaRamadhani.frontend;
-
-import com.badlogic.gdx.graphics.Color;
+package com.CalistaAqilaRamadhani.frontend.objects.enemies;
 
 public class Enemy extends GameObject {
 
@@ -66,18 +64,31 @@ public class Enemy extends GameObject {
 
     public boolean takeDamage(int damage) {
 
-        if (hp <= 0) {
+        public boolean takeDamage(int damage) {
+            boolean wasAlive = isAlive();
+
+            this.hp -= damage;
+
+            if (this.hp < 0) {
+                this.hp = 0;
+            }
+
+            System.out.println(
+                name + " took " + damage +
+                    " damage! HP: " +
+                    this.hp + "/" + this.maxHp
+            );
+
+            if (wasAlive && this.hp == 0) {
+                System.out.println(name + " was defeated!");
+
+                destroy();
+
+                return true;
+            }
+
             return false;
         }
-
-        hp -= damage;
-
-        if (hp <= 0) {
-            hp = 0;
-            return true;
-        }
-
-        return false;
     }
 
     public boolean isAlive() {
