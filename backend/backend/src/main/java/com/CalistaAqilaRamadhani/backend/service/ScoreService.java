@@ -6,6 +6,7 @@ import com.CalistaAqilaRamadhani.backend.repository.ScoreRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.List;
 import java.util.Optional;
@@ -38,7 +39,9 @@ public class ScoreService {
     }
 
     public List<Score> getLeaderboard(Integer limit) {
-        return scoreRepository.findTopScores(limit);
+        return scoreRepository.findTopScores(
+            PageRequest.of(0, limit)
+        );
     }
 
     public void deleteScore(UUID scoreId) {
